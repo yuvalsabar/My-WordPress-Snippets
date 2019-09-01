@@ -20,10 +20,10 @@
 
 <script>
 	function qs_accordion() {
-		jQuery('.qs-accordion li .entry-title a').click(function(e) {
+		$('.qs-accordion li .entry-title a').click(function(e) {
 			e.preventDefault();
-			jQuery('.qs-accordion li.active').not(jQuery(this).closest('.qs-accordion li')).removeClass('active').find('.content').slideUp();
-			jQuery(this).closest('.qs-accordion li').toggleClass('active').find('.content').slideToggle();
+			$('.qs-accordion li.active').not($(this).closest('.qs-accordion li')).removeClass('active').find('.content').slideUp();
+			$(this).closest('.qs-accordion li').toggleClass('active').find('.content').slideToggle();
 		});
 	}
 </script>
