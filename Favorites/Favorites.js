@@ -1,4 +1,4 @@
-// Dependencies: js-cookie  - https://github.com/js-cookie/js-cookie
+// Dependencies: js-cookie (https://github.com/js-cookie/js-cookie)
 
 function favorite_posts_init() {
     favorites = Cookies.getJSON('favorite_posts');
