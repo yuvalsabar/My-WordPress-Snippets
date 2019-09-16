@@ -1,29 +1,33 @@
-<ul class="qs-accordion">
+<?php if ( have_rows( 'accordion' ) ) : ?>
 
-	<?php while ( have_rows( 'faq' ) ) : the_row();?>
+	<ul class="accordion">
 
-		 <li class="item">
-			<h3 class="entry-title">
-				<a href="#" rel="nofollow">
-					<span class="entry-text"><?php the_sub_field( 'title' );?></span>
-					<span class="fa fa-angle-down" aria-hidden="true"></span>
-				</a>
-			</h3>
-			<div class="entry-content">
-				<?php the_sub_field( 'content' );?>
-			</div>
-		</li>
+		<?php while ( have_rows( 'accordion' ) ) : the_row();?>
 
-	<?php endwhile; ?>
-	
-</ul>
+			 <li class="item">
+				<h3 class="entry-title">
+					<a href="#" rel="nofollow">
+						<span class="entry-text"><?php the_sub_field( 'title' );?></span>
+						<span class="fa fa-angle-down" aria-hidden="true"></span>
+					</a>
+				</h3>
+				<div class="entry-content">
+					<?php the_sub_field( 'content' );?>
+				</div>
+			</li>
+
+		<?php endwhile; ?>
+		
+	</ul>
+
+<?php endif;?>
 
 <script>
-	function qs_accordion() {
-		$('.qs-accordion li .entry-title a').click(function(e) {
-			e.preventDefault();
-			$('.qs-accordion li.active').not($(this).closest('.qs-accordion li')).removeClass('active').find('.content').slideUp();
-			$(this).closest('.qs-accordion li').toggleClass('active').find('.content').slideToggle();
-		});
-	}
+function accordion_init() {
+    jQuery('.accordion li .entry-title a').click(function(e) {
+        e.preventDefault();
+        jQuery('.accordion li.active').not(jQuery(this).closest('.accordion li')).removeClass('active').find('.entry-content').slideUp();
+        jQuery(this).closest('.accordion li').toggleClass('active').find('.entry-content').slideToggle();
+    });
+}
 </script>
