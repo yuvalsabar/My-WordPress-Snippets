@@ -16,5 +16,5 @@ function get_recaptcha_response() {
 $response = get_recaptcha_response();
 
 if ( $response->success ) {
-	...
+	// Success code goes here
 }

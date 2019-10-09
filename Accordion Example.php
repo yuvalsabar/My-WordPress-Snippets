@@ -24,10 +24,10 @@
 
 <script>
 function accordion_init() {
-    jQuery('.accordion li .entry-title a').click(function(e) {
+    $('.accordion li .entry-title a').click(function(e) {
         e.preventDefault();
-        jQuery('.accordion li.active').not(jQuery(this).closest('.accordion li')).removeClass('active').find('.entry-content').slideUp();
-        jQuery(this).closest('.accordion li').toggleClass('active').find('.entry-content').slideToggle();
+        $('.accordion li.active').not($(this).closest('.accordion li')).removeClass('active').find('.entry-content').slideUp();
+        $(this).closest('.accordion li').toggleClass('active').find('.entry-content').slideToggle();
     });
 }
 </script>
