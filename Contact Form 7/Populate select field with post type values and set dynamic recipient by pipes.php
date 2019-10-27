@@ -35,7 +35,6 @@ add_filter( 'wpcf7_form_tag', 'dynamic_select_field_values', 10, 2);
  * Dynamic recipient with pipes
  */
 function wpcf7_dynamic_recipient ($wpcf7) {
-    // The ID of the form
     if ( $wpcf7->id() == 787 || $wpcf7->id() == 2520 ) {
         $submission = WPCF7_Submission::get_instance();
         $posted_data = $submission->get_posted_data();
