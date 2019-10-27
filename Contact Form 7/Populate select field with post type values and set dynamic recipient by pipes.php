@@ -1,6 +1,6 @@
 <?php
 /**
- * Populate select field with titles and pipes in WPCF7
+ * Populate select field with titles and pipes
  */
 function dynamic_select_field_values ( $scanned_tag, $replace ) {  
     if ( $scanned_tag['name'] != 'department' )  
@@ -32,7 +32,7 @@ function dynamic_select_field_values ( $scanned_tag, $replace ) {
 add_filter( 'wpcf7_form_tag', 'dynamic_select_field_values', 10, 2); 
 
 /**
- * Dynamic recipient with pipes
+ * Dynamic recipient by pipes
  */
 function wpcf7_dynamic_recipient ($wpcf7) {
     if ( $wpcf7->id() == 787 || $wpcf7->id() == 2520 ) {
