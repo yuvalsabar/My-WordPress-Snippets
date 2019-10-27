@@ -8,10 +8,11 @@ function dynamic_select_field_values( $scanned_tag, $replace ) {
 
     $posts = get_posts(
         array( 
-            'post_type'      => 'department',
-            'orderby'        => 'title',
-            'order'          => 'ASC',
-            'posts_per_page' => -1
+            'post_type'        => 'department',
+            'orderby'          => 'title',
+            'order'            => 'ASC',
+            'posts_per_page'   => -1,
+            'suppress_filters' => false
         )
     );  
   
@@ -39,11 +40,13 @@ function wpcf7_dynamic_recipient( $wpcf7 ) {
         $submission = WPCF7_Submission::get_instance();
         $posted_data = $submission->get_posted_data();
 
-        $email_to = $posted_data['department'];
-        $mail = $wpcf7->prop( 'mail' );
-        $mail['recipient'] = $email_to;
+        if ( $posted_data['department'] != 'general_email' ) {
+            $email_to = $posted_data['department'];
+            $mail = $wpcf7->prop( 'mail' );
+            $mail['recipient'] = $email_to;
 
-        $wpcf7->set_properties( array( 'mail' => $mail ) );
+            $wpcf7->set_properties( array( 'mail' => $mail ) );
+        }
     }
 }
 add_action( 'wpcf7_before_send_mail', 'wpcf7_dynamic_recipient' );
