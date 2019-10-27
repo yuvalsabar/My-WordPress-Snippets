@@ -22,7 +22,7 @@ function dynamic_select_field_values( $scanned_tag, $replace ) {
         $scanned_tag['raw_values'][] = $row->post_title . '|' . get_field( 'email', $row->ID );
     }
 
-    $pipes = new WPCF7_Pipes($scanned_tag['raw_values']);
+    $pipes = new WPCF7_Pipes( $scanned_tag['raw_values'] );
 
     $scanned_tag['values'] = $pipes->collect_befores();
     $scanned_tag['pipes'] = $pipes;
