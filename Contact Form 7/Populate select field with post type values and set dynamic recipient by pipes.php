@@ -2,7 +2,7 @@
 /**
  * Populate select field with titles and pipes
  */
-function dynamic_select_field_values ( $scanned_tag, $replace ) {  
+function dynamic_select_field_values( $scanned_tag, $replace ) {  
     if ( $scanned_tag['name'] != 'department' )  
         return $scanned_tag;
 
@@ -29,12 +29,12 @@ function dynamic_select_field_values ( $scanned_tag, $replace ) {
   
     return $scanned_tag;  
 }  
-add_filter( 'wpcf7_form_tag', 'dynamic_select_field_values', 10, 2); 
+add_filter( 'wpcf7_form_tag', 'dynamic_select_field_values', 10, 2 ); 
 
 /**
  * Dynamic recipient by pipes
  */
-function wpcf7_dynamic_recipient ($wpcf7) {
+function wpcf7_dynamic_recipient( $wpcf7 ) {
     if ( $wpcf7->id() == 787 || $wpcf7->id() == 2520 ) {
         $submission = WPCF7_Submission::get_instance();
         $posted_data = $submission->get_posted_data();
