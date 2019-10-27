@@ -7,7 +7,7 @@ function dynamic_select_field_values ( $scanned_tag, $replace ) {
         return $scanned_tag;
 
     $posts = get_posts(
-        array ( 
+        array( 
             'post_type'      => 'department',
             'orderby'        => 'title',
             'order'          => 'ASC',
