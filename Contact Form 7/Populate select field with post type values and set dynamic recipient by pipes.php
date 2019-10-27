@@ -32,7 +32,7 @@ function dynamic_select_field_values ( $scanned_tag, $replace ) {
 add_filter( 'wpcf7_form_tag', 'dynamic_select_field_values', 10, 2); 
 
 /**
- * Dynamic Recipient with pipes
+ * Dynamic recipient with pipes
  */
 function wpcf7_dynamic_recipient ($wpcf7) {
     // The ID of the form
