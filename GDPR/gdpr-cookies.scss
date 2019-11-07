@@ -1,0 +1,18 @@
+.gdpr-cookies {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    width: 100%;
+    height: 105px;
+    padding: 25px 0;
+    text-align: center;
+    color: #fff;
+    background-color: #005587;
+    .entry-text {
+        margin-bottom: 20px;
+    }
+    .btn-gdpr {
+        font-weight: 700;
+        border-bottom: 2px solid #fff;
+    }
+}
