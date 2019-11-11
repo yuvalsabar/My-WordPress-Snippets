@@ -48,7 +48,7 @@ class social_networks_widget extends WP_Widget {
 
 	// Widget Backend
 	public function form( $instance ) {
-		// Fields are create by ACF
+		// Fields are created by ACF
 	}
 
 	// Updating widget replacing old instances with new
