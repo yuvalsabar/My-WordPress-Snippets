@@ -7,22 +7,22 @@ function register_siderbars_and_widgets() {
 		array(
 			'name' 			=> __( 'Library Page', 'qstheme' ),
 			'id'   			=> 'library',
-			'before_widget' => '<div class="widget %1$s" id="%1$s">',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	        'after_widget'  => '</div>',
 		)
 	);
 
-	register_widget( 'social_networks_widget' );
+	register_widget( 'social_networks' );
 }
 add_action('widgets_init', 'register_siderbars_and_widgets');
 
 /**
  * Custom widget: Socials networks
  */
-class social_networks_widget extends WP_Widget {
+class social_networks extends WP_Widget {
 	function __construct() {
 		parent::__construct(
-			'social_networks_widget',
+			'social_networks',
 			__( 'Social Networks', 'qstheme' ),
 			array( 'description' => __( 'Social networks widget', 'qstheme' ) )
 		);
@@ -36,9 +36,11 @@ class social_networks_widget extends WP_Widget {
 		// This is where you run the code and display the output
 		ob_start();
 		?>
-
+	
 		<div class="widget-in">
 			<?php the_field( 'facebook', 'widget_' . $args['widget_id'] ); ?>
+			<?php the_field( 'whatsapp', 'widget_' . $args['widget_id'] ); ?>
+			<?php the_field( 'instagram', 'widget_' . $args['widget_id'] ); ?>
 		</div>
 
 		<?php 
