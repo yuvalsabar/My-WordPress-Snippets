@@ -37,7 +37,7 @@ class social_networks_widget extends WP_Widget {
 		ob_start();
 		?>
 
-		<div class="blah">
+		<div class="widget-in">
 			<?php the_field( 'facebook', 'widget_' . $args['widget_id'] ); ?>
 		</div>
 
