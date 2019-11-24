@@ -22,7 +22,6 @@ function ajax_load_more() {
 
             success: function(results) {
                 $(append).append(results.html);
-                AOS.init();
                 $('.loader-wrap .loader').remove();
                 if ( ! results.more ) {
                     $('.btn-load-more').remove();
