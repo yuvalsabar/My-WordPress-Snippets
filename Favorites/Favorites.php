@@ -11,7 +11,7 @@
  */
 static function get_favorites( $post_type = 'post' ) {
 	if ( isset( $_COOKIE["favs_{$post_type}"] ) ) {
-		return explode('|', $_COOKIE["favs_{$post_type}"]);
+		return explode( '|', $_COOKIE["favs_{$post_type}"] );
 	} else {
 		return array();
 	}
