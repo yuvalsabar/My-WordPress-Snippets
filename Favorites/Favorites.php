@@ -1,47 +1,41 @@
-<button class="btn btn-favorites" data-postid="<?php echo $post->ID;?>">
-	<?php echo is_favorite() ? 'Favorite post' : 'Not a favorite post';?>
+<?php $btn_class = QS::is_favorite( $post->ID, 'product' ) ? 'btn-favorites is-favorite' : 'btn-favorites'; ?>
+<button class="<?php echo $btn_class; ?>" data-post-id="<?php echo $post->ID; ?>" data-post-type="product" aria-label="<?php _e( 'Add to Favorties', 'qstheme' ); ?>" title="<?php _e( 'Add to Favorties', 'qstheme' ); ?>">
+	<span class="fa fa-heart-o" aria-hidden="true"></span>
 </button>
-  
+
 <?php
-
 /**
-* Get array of favorites posts
-* @return array of favorites posts
-*/
-function get_favorites() {
-    if ( isset( $_COOKIE['favorite_posts'] ) ) {
-        return array_values( json_decode( stripslashes( $_COOKIE['favorite_posts'] ), true) );
-    } else {
-        return array();
-    }
+ * Get favorites
+ * @param  string $post_type
+ * @return array  Array of favorites    
+ */
+static function get_favorites( $post_type = 'post' ) {
+	if ( isset( $_COOKIE["favs_{$post_type}"] ) ) {
+		return explode('|', $_COOKIE["favs_{$post_type}"]);
+	} else {
+		return array();
+	}
 }
 
 /**
-* Check if the post is in favorites
-* @param  int  $post_id
-* @return boolean
-*/
-function is_favorite( $post_id = '' ) {
-    if ( ! $post_id ) {
-        global $post;
-        $post_id = $post->ID;
-    }
-    $favs = get_favorites();
+ * Is favorite
+ * @param  int     $post_id
+ * @param  string  $post_type
+ * @return boolean            
+ */
+static function is_favorite( $post_id = '', $post_type = 'post' ) {
+	if ( ! $post_id ) {
+		global $post;
+		$post_id = $post->ID;
+	}
 
-    if ( ! empty( $favs ) ) {
-        if ( in_array( $post_id, $favs ) ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
+	$favs = QS::get_favorites( $post_type );
 
-/**
-* Return count of favorites
-*/
-function get_favorites_counts() {
-    $post_favs       = get_favorites( 'post' );
-    $post_favs_count = count($post_favs);
-    return $post_favs_count;
+	if ( ! empty( $favs ) ) {
+		if ( in_array( $post_id, $favs ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

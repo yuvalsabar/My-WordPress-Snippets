@@ -12,7 +12,7 @@
 					</a>
 				</h3>
 				<div class="entry-content">
-					<?php the_sub_field( 'content' );?>
+					<?php the_sub_field( 'content' ); ?>
 				</div>
 			</li>
 
