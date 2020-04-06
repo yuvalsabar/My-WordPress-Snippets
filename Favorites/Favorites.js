@@ -23,7 +23,15 @@ function add_to_favorites() {
             else {
                 var index = favs_arr.indexOf( post_id );
                 favs_arr.splice(index, 1);
-                Cookies.set( 'favs_' + post_type, favs_arr.join('|') );  
+
+                Cookies.set( 'favs_' + post_type, favs_arr.join('|') );
+                
+                // If cookies cookies for post type are empty - unset the cookie
+                new_val = Cookies.get( 'favs_' + post_type );
+
+                if ( ! new_val ) {
+                    Cookies.remove( 'favs_' + post_type );
+                }
             }
         }
     });
