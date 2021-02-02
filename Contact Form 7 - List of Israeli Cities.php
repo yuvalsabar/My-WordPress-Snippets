@@ -1,6 +1,18 @@
 <?php
 // Usage: Simply use [cities] in the form
 
+/**
+ * Add form tags to Contact Form 7
+ */
+function add_form_tags() {
+	wpcf7_add_form_tag( 'cities', 'cities_form_tag' );
+}
+
+add_action( 'wpcf7_init', 'add_form_tags' );
+
+/**
+ * Cities form tag for Contact Form 7
+ */
 function cities_form_tag( $tag ) {
 	$endpoint = 'https://data.gov.il/api/3/action/datastore_search?resource_id=ec172c08-27fe-4d97-960d-dabf741c077f&fields=%D7%A9%D7%9D_%D7%99%D7%A9%D7%95%D7%91,%D7%A9%D7%9D_%D7%99%D7%A9%D7%95%D7%91_%D7%9C%D7%95%D7%A2%D7%96%D7%99&limit=32000';
 	$cities   = json_decode( file_get_contents( $endpoint ), JSON_FORCE_OBJECT )['result']['records'];
@@ -18,6 +30,7 @@ function cities_form_tag( $tag ) {
 			foreach ( $cities as $city ) :
 				$city = str_replace( '(', ')', $city );
 				$city = str_replace( ' )', ' (', $city );
+				$city = trim( $city );
 				?>
 
 				<option value="<?php echo $city; ?>">
@@ -32,8 +45,3 @@ function cities_form_tag( $tag ) {
 
 	return ob_get_clean();
 }
-
-function add_form_tags() {
-	wpcf7_add_form_tag( 'cities', 'cities_form_tag' );
-}
-add_action( 'wpcf7_init', 'add_form_tags' );
