@@ -1,5 +1,5 @@
 <?php
-// Use '['cities'] 
+// Usage: Simply use [cities] in the form
 
 function cities_form_tag( $tag ) {
 	$endpoint = 'https://data.gov.il/api/3/action/datastore_search?resource_id=ec172c08-27fe-4d97-960d-dabf741c077f&fields=%D7%A9%D7%9D_%D7%99%D7%A9%D7%95%D7%91,%D7%A9%D7%9D_%D7%99%D7%A9%D7%95%D7%91_%D7%9C%D7%95%D7%A2%D7%96%D7%99&limit=32000';
