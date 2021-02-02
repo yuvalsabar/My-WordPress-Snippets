@@ -13,7 +13,7 @@ $args = array(
         ),
         array(
             'key'     => 'end-date',
-            'value'   => date('Y-m-d'),
+            'value'   => date('Ymd'),
             'compare' => '>=',
             'type'    => 'DATE',
         ),
@@ -27,7 +27,7 @@ $args = array(
    'meta_query' => array(
 		'key'           => 'date',
 		'compare'       => '>',
-		'value'         => date('Y-m-d'),
+		'value'         => date('Ymd'),
 		'type'          => 'DATETIME'
    )
 );

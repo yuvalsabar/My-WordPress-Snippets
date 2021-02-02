@@ -55,7 +55,7 @@ class social_networks extends WP_Widget {
 
 	// Updating widget replacing old instances with new
 	public function update( $new_instance, $old_instance ) {
-		$instance          = array();
+		$instance = array();
 		
 		return $instance;
 	}
