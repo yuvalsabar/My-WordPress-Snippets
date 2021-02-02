@@ -36,7 +36,6 @@ function cities_form_tag( $tag ) {
 				<option value="<?php echo $city; ?>">
 					<?php echo $city; ?>
 				</option>
-
 			<?php endforeach; ?>
 		</select>
 	</span>
