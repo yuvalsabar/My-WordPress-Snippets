@@ -14,15 +14,15 @@ function cities_form_tag( $tag ) {
 			<option value="<?php _e( 'City', 'ystheme' ); ?>">
 				<?php _e( 'City', 'ystheme' ); ?>
 			</option>
-			<?php foreach ( $cities as $city ) : ?>
-
-			<option value="<?php echo $city; ?>">
-				<?php
+			<?php
+			foreach ( $cities as $city ) :
 				$city = str_replace( '(', ')', $city );
 				$city = str_replace( ' )', ' (', $city );
-				echo $city;
 				?>
-			</option>
+
+				<option value="<?php echo $city; ?>">
+					<?php echo $city; ?>
+				</option>
 
 			<?php endforeach; ?>
 		</select>
